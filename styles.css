@@ -1,0 +1,82 @@
+/* Claude Bulk Delete Extension */
+
+#cbe-wrap {
+  position: fixed;
+  z-index: 9999;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* top / left / width / background-color are set by JS */
+}
+
+#cbe-main {
+  width: 100%;
+  padding: 8px 12px;
+  background: #92400e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+#cbe-main:hover {
+  background: #78350f;
+}
+
+#cbe-main.cbe-cancel {
+  background: #374151;
+}
+
+#cbe-main.cbe-cancel:hover {
+  background: #1f2937;
+}
+
+#cbe-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+#cbe-toolbar button {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+#cbe-all {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#cbe-all:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+#cbe-delete {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+#cbe-delete:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+#cbe-delete:disabled {
+  background: rgba(220, 38, 38, 0.35);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+/* Chat item selection highlight */
+.cbe-selected {
+  background-color: rgba(217, 119, 6, 0.15) !important;
+  border-radius: 6px;
+}
