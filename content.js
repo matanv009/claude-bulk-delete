@@ -59,12 +59,29 @@
     return '#1a1a1a';
   }
 
+  const SIDEBAR_MIN_WIDTH = 100; // px — below this the sidebar is considered collapsed
+
   function syncPosition() {
     const wrap = document.getElementById('cbe-wrap');
     const nav = document.querySelector('nav');
     if (!wrap || !nav) return;
 
     const rect = nav.getBoundingClientRect();
+    const collapsed = rect.width < SIDEBAR_MIN_WIDTH;
+
+    // Hide and disable the button when sidebar is collapsed
+    wrap.style.display = collapsed ? 'none' : '';
+
+    const mainBtn = document.getElementById('cbe-main');
+    if (mainBtn) mainBtn.disabled = collapsed;
+
+    if (collapsed) {
+      // Remove nav padding so the sidebar layout is not affected
+      const styleTag = document.getElementById('cbe-nav-style');
+      if (styleTag) styleTag.textContent = '';
+      return;
+    }
+
     Object.assign(wrap.style, {
       top: rect.top + 'px',
       left: rect.left + 'px',
